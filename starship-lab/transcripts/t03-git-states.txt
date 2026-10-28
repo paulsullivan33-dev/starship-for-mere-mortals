@@ -1,0 +1,88 @@
+--- the repository as committed: clean, in step with its remote ---
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ printf "...a line..." >> notes.py     (edit a tracked file, stage nothing)
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ [!]              -  Symbols representing the state of the current Git repo, filtered to your current directory
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ git add notes.py     (stage the change)
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ [+]              -  Symbols representing the state of the current Git repo, filtered to your current directory
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ echo "try the north path" > ideas.txt     (a brand-new, untracked file)
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ [+?]             -  Symbols representing the state of the current Git repo, filtered to your current directory
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ git stash -u -m lab     (put everything away for a moment)
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in          -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ [$]              -  Symbols representing the state of the current Git repo, filtered to your current directory
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ git stash pop; git add -A; git commit -m "More notes"     (commit, but do not push)
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ [⇡]              -  Symbols representing the state of the current Git repo, filtered to your current directory
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ git push     (back in step with the remote; the lab finishes where it started)
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ is 📦 v0.1.0    -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]         -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal

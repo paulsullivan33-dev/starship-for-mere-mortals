@@ -1,0 +1,14 @@
+$ bash --rcfile starship-lab/rc-bash -i        (colour codes stripped: after 'false' the arrow is red on a real screen - t04 shows the codes)
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ false
+
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ sleep 3
+
+root in starship-scratch/lab/plain took 3s
+⬢ [OCI] ❯ true
+
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ exit
+
+exit

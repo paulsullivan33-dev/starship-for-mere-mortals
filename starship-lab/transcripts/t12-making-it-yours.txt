@@ -1,0 +1,29 @@
+$ STARSHIP_CONFIG=toggle-test.toml starship toggle python        (a copy of the lab configuration)
+$ grep -A2 "\[python\]" toggle-test.toml
+[python]
+disabled = false
+
+$ STARSHIP_CONFIG=toggle-test.toml starship toggle python        (toggle it back)
+$ grep -A2 "\[python\]" toggle-test.toml
+[python]
+disabled = true
+
+$ STARSHIP_CONFIG=toggle-test.toml starship toggle directory
+Given config key 'disabled' must exist in config file
+(toggle only flips a disabled key that already exists in the file; it invents nothing)
+
+$ cat character.toml
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+$ STARSHIP_CONFIG=character.toml starship prompt --status 0        (colour codes stripped)
+
+root in starship-scratch/lab/plain 
+⬢ [OCI] ➜ 
+$ cat substitutions.toml
+[directory]
+substitutions = { "starship-scratch" = "LAB" }
+$ STARSHIP_CONFIG=substitutions.toml starship prompt        (colour codes stripped)
+
+root in LAB/lab/plain 
+⬢ [OCI] ❯ 

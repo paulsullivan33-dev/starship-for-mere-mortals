@@ -1,0 +1,11 @@
+$ starship prompt | python3 -c "list every non-ASCII character and its codepoint"
+U+E0A0    <no name - this is a Private Use Area codepoint>
+U+1F4E6  📦  PACKAGE
+U+1F40D  🐍  SNAKE
+U+2B22  ⬢  BLACK HEXAGON
+U+276F  ❯  HEAVY RIGHT-POINTING ANGLE QUOTATION MARK ORNAMENT
+
+$ fc-list | wc -l        (fonts installed on the lab machine)
+2051
+$ fc-list | grep -i "nerd font"        (search them for a Nerd Font)
+(no output: there is no Nerd Font on this machine)

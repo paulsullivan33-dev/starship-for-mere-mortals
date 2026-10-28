@@ -1,0 +1,24 @@
+$ starship prompt        (colour codes stripped)
+
+root in starship-scratch/lab/web-widget is 📦 v0.2.0 via  v24.22.1 
+⬢ [OCI] ❯ 
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in                           -  The active user's username
+ starship-scratch/lab/web-widget   -  The current working directory
+ is 📦 v0.2.0                      -  The package version of the current directory's project
+ via  v24.22.1                     -  The currently installed version of NodeJS
+ ⬢ [OCI]                           -  The container indicator, if inside a container.
+ ❯                                 -  A character (usually an arrow) beside where the text is entered in your terminal
+
+$ python3 -c "add private:true to package.json"     (an editor works too)
+$ starship prompt        (the package segment has gone)
+
+root in starship-scratch/lab/web-widget via  v24.22.1 
+⬢ [OCI] ❯ 
+$ python3 -c "take the private line out again"
+$ starship prompt        (and it is back)
+
+root in starship-scratch/lab/web-widget is 📦 v0.2.0 via  v24.22.1 
+⬢ [OCI] ❯ 

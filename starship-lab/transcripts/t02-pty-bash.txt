@@ -1,0 +1,28 @@
+$ bash --rcfile starship-lab/rc-bash -i        (a real interactive bash in a terminal; colour codes stripped)
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ pwd
+
+/home/hatch/workspace/build-check/starship-scratch/lab/plain
+
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ cd ../trailnotes
+
+root in trailnotes on  main is 📦 v0.1.0 via 🐍 v3.12.3
+⬢ [OCI] ❯ python3 notes.py "saw a heron by the creek"
+
+noted.
+
+root in trailnotes on  main [?] is 📦 v0.1.0 via 🐍 v3.12.3
+⬢ [OCI] ❯ python3 notes.py
+
+saw a heron by the creek
+
+root in trailnotes on  main [?] is 📦 v0.1.0 via 🐍 v3.12.3
+⬢ [OCI] ❯ git status --short
+
+?? notes.txt
+
+root in trailnotes on  main [?] is 📦 v0.1.0 via 🐍 v3.12.3
+⬢ [OCI] ❯ exit
+
+exit

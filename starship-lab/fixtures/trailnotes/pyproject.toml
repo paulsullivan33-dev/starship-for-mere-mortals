@@ -1,0 +1,8 @@
+[project]
+name = "trailnotes"
+version = "0.1.0"
+description = "Keep short notes about walks in a plain text file"
+requires-python = ">=3.11"
+
+[tool.setuptools]
+py-modules = ["notes"]

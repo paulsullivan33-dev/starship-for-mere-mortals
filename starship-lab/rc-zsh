@@ -1,0 +1,4 @@
+# The same for zsh. Copy this file to .zshrc in a folder of its own,
+# then start zsh with ZDOTDIR pointing at that folder:
+#   ZDOTDIR=/path/to/folder zsh -i
+eval "$(starship init zsh)"

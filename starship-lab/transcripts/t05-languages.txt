@@ -1,0 +1,43 @@
+$ ls -a
+.
+..
+.nvmrc
+package.json
+widget.js
+
+$ starship prompt        (colour codes stripped)
+
+root in starship-scratch/lab/web-widget is 📦 v0.2.0 via  v24.22.1 
+⬢ [OCI] ❯ 
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in                           -  The active user's username
+ starship-scratch/lab/web-widget   -  The current working directory
+ is 📦 v0.2.0                      -  The package version of the current directory's project
+ via  v24.22.1                   -  The currently installed version of NodeJS
+ ⬢ [OCI]                          -  The container indicator, if inside a container.
+ ❯                                -  A character (usually an arrow) beside where the text is entered in your terminal
+$ ls -a
+.
+..
+.git
+.python-version
+README.md
+notes.py
+pyproject.toml
+
+$ starship prompt        (colour codes stripped)
+
+root in trailnotes on  main is 📦 v0.1.0 via 🐍 v3.12.3 
+⬢ [OCI] ❯ 
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in         -  The active user's username
+ trailnotes       -  The current working directory
+ on  main       -  The active branch of the current Git repo
+ is 📦 v0.1.0     -  The package version of the current directory's project
+ via 🐍 v3.12.3   -  The currently installed version of Python
+ ⬢ [OCI]          -  The container indicator, if inside a container.
+ ❯               -  A character (usually an arrow) beside where the text is entered in your terminal

@@ -1,0 +1,47 @@
+$ starship timings
+
+ Here are the timings of modules in your prompt (>=1ms or output):
+ git_status  -   6ms  -   ""
+ python      -   3ms  -   "via 🐍 v3.12.3 "
+ directory   -   2ms  -   "trailnotes "
+ netns       -   2ms  -   ""
+ username    -  <1ms  -   "root in "
+ git_branch  -  <1ms  -   "on  main "
+ package     -  <1ms  -   "is 📦 v0.1.0 "
+ line_break  -  <1ms  -   "\n"
+ container   -  <1ms  -   "⬢ [OCI] "
+ character   -  <1ms  -   "❯ "
+
+$ starship module git_status
+(a clean repository: the module prints nothing at all)
+
+$ starship print-config | head -12        (the configuration starship is actually using, defaults filled in)
+# Warning: This config does not include keys that have an unset value
+
+# $all is shorthand for $username$hostname$localip$shlvl$singularity$kubernetes$nats$directory$vcsh$fossil_branch$fossil_metrics$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$hg_state$pijul_channel$docker_context$package$bun$c$cmake$cobol$cpp$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$fortran$gleam$golang$gradle$haskell$haxe$helm$java$julia$kotlin$lua$maven$mojo$nim$nodejs$ocaml$odin$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$xmake$zig$buf$guix_shell$nix_shell$conda$pixi$meson$spack$memory_usage$aws$gcloud$openstack$azure$direnv$env_var$mise$crystal$custom$sudo$cmd_duration$line_break$jobs$battery$time$status$container$netns$os$shell$character
+"$schema" = "https://starship.rs/config-schema.json"
+format = "$all"
+right_format = ""
+continuation_prompt = "[∙](bright-black) "
+scan_timeout = 30
+command_timeout = 500
+add_newline = true
+follow_symlinks = true
+
+
+$ STARSHIP_CONFIG=starship-lab/broken-starship.toml starship prompt
+[ERROR] - (starship::config): Unable to parse the config file: TOML parse error at line 3, column 6
+  |
+3 | this line is not toml at all
+  |      ^
+key with no value, expected `=`
+
+
+$ STARSHIP_CONFIG=starship-lab/broken-starship.toml starship prompt        (the error goes to stderr; what reaches the shell?)
+
+root in starship-scratch/lab/plain 
+⬢ [OCI] ❯ (the default prompt, exit code 0: the shell never notices, the customisations just vanish)
+
+$ printf "format = \"\$username\$charakter\$character\"" > typo.toml; STARSHIP_CONFIG=typo.toml starship prompt
+
+root in ❯ (no warning at all: an unknown name in the format is skipped in silence - a typo here fails quietly)

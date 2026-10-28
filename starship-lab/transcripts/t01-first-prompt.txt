@@ -1,0 +1,11 @@
+$ starship prompt        (colour codes stripped - t08 shows the raw bytes)
+
+root in starship-scratch/lab/plain 
+⬢ [OCI] ❯ 
+$ starship explain
+
+ Here's a breakdown of your prompt:
+ root in                     -  The active user's username
+ starship-scratch/lab/plain   -  The current working directory
+ ⬢ [OCI]                      -  The container indicator, if inside a container.
+ ❯                           -  A character (usually an arrow) beside where the text is entered in your terminal

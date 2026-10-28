@@ -1,0 +1,9 @@
+$ starship --version
+starship 1.27.0
+branch:main
+commit_hash:f8e4e21
+build_time:2026-10-17 09:19:34 +00:00
+build_env:rustc 1.99.1 (58cf8f9c3 2026-10-13),
+
+$ node --version     (and python3 reports 3.12.3 on this machine)
+v24.22.1

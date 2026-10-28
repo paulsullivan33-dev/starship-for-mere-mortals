@@ -1,0 +1,66 @@
+$ starship preset --list
+bracketed-segments
+catppuccin-powerline
+gruvbox-rainbow
+jetpack
+nerd-font-symbols
+no-empty-icons
+no-nerd-font
+no-runtime-versions
+pastel-powerline
+plain-text-symbols
+pure-preset
+tokyo-night
+
+
+$ starship preset pure-preset        (a preset is just a configuration file, printed for you to save)
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$character"""
+
+[directory]
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+    [... the printout continues; the lab saved it whole as pure-preset.toml ...]
+
+$ STARSHIP_CONFIG=pure-preset.toml starship prompt        (colour codes stripped)
+
+root in trailnotes main 
+❯ 
+$ STARSHIP_CONFIG=pure-preset.toml starship explain
+
+ Here's a breakdown of your prompt:
+ ❯           -  A character (usually an arrow) beside where the text is entered in your terminal
+ trailnotes   -  The current working directory
+ main        -  The active branch of the current Git repo
+              -  Symbols representing the state of the current Git repo, filtered to your current directory
+ root in     -  The active user's username
+
+$ starship preset nerd-font-symbols | grep -A3 "\[git_branch\]"
+[git_branch]
+symbol = " "
+
+[git_commit]

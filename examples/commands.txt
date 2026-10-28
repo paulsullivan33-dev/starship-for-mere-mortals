@@ -1,0 +1,68 @@
+starship — the distilled commands
+====================================================================
+Placeholders: <shell> is bash, zsh, fish or powershell;
+<module> is a module name; <config.toml> is a configuration file.
+
+INSTALL AND SWITCH ON (chapters 3-4)
+--------------------------------------------------------------------
+  # the release binary, hash checked against the project's .sha256
+  curl -LO https://github.com/starship/starship/releases/download/v<ver>/starship-x86_64-unknown-linux-gnu.tar.gz
+  sha256sum starship-x86_64-unknown-linux-gnu.tar.gz
+  starship --version
+
+  # one line, LAST in the shell's startup file:
+  eval "$(starship init bash)"            # ~/.bashrc
+  eval "$(starship init zsh)"             # ~/.zshrc
+  Invoke-Expression (&starship init powershell)   # the $PROFILE file
+
+  # the lab's way - a throwaway startup file, nothing else touched:
+  bash --rcfile starship-lab/rc-bash -i
+  ZDOTDIR=<folder holding rc-zsh as .zshrc> zsh -i
+
+INTERROGATE (chapter 8)
+--------------------------------------------------------------------
+  starship prompt                 # the prompt for this folder
+  starship prompt --status 1 --cmd-duration 95000
+                                  # ...as the shell would hand it over
+  starship explain                # who is speaking, and why
+  starship timings                # who is slow
+  starship module <module>        # one witness at a time
+  starship module --list          # the full cast
+  starship print-config           # the merged truth, defaults filled in
+  starship prompt | cat -v        # see the colour codes themselves
+
+CONFIGURE (chapters 9-10)
+--------------------------------------------------------------------
+  # default home of the configuration:
+  ~/.config/starship.toml
+  STARSHIP_CONFIG=<config.toml> starship prompt
+                                  # rehearse a file without installing it
+  starship toggle <module>        # flip an existing disabled key -
+                                  # and only an existing one
+
+  [status]
+  disabled = false                # the failure, named: ❌3
+
+  [python]
+  disabled = true                 # a module retired
+
+  [character]
+  success_symbol = "[➜](bold green)"
+  error_symbol  = "[➜](bold red)"
+
+  [directory]
+  truncation_length = 5
+  substitutions = { "long-prefix" = "short" }
+
+PRESETS (chapter 11)
+--------------------------------------------------------------------
+  starship preset --list
+  starship preset pure-preset > ~/.config/starship.toml
+  starship preset no-nerd-font    # the default shape, glyph-free
+
+THE FIXTURES (starship-lab/)
+--------------------------------------------------------------------
+  starship-lab/make-fixtures.sh ~/starship-lab
+                                  # builds trailnotes (a git project
+                                  # with a local remote), web-widget
+                                  # and plain/ under ~/starship-lab

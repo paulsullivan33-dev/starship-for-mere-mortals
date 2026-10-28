@@ -1,0 +1,21 @@
+$ ZDOTDIR=<folder holding rc-zsh as .zshrc> zsh -i        (a real interactive zsh; colour codes stripped. The lone # before each prompt is zsh itself - its end-of-line marker for root, printed because the prompt text does not end with a newline)
+#
+
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ pwd
+
+/home/hatch/workspace/build-check/starship-scratch/lab/plain
+#
+
+root in starship-scratch/lab/plain
+⬢ [OCI] ❯ cd ../trailnotes
+
+#
+
+root in trailnotes on  main is 📦 v0.1.0 via 🐍 v3.12.3
+⬢ [OCI] ❯ git status --short
+
+#
+
+root in trailnotes on  main is 📦 v0.1.0 via 🐍 v3.12.3
+⬢ [OCI] ❯ exit

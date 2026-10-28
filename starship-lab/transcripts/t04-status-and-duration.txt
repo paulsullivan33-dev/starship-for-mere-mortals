@@ -1,0 +1,30 @@
+$ starship prompt --status 0 | cat -v     (the last command succeeded)
+
+^[[1;31mroot^[[0m in ^[[1;36mstarship-scratch/lab/plain^[[0m 
+^[[1;2;31mM-bM-,M-" [OCI]^[[0m ^[[1;32mM-bM-^]M-/^[[0m 
+$ starship prompt --status 1 | cat -v     (the last command failed)
+
+^[[1;31mroot^[[0m in ^[[1;36mstarship-scratch/lab/plain^[[0m 
+^[[1;2;31mM-bM-,M-" [OCI]^[[0m ^[[1;31mM-bM-^]M-/^[[0m 
+Only one thing changed colour: the character itself, green [1;32m to red [1;31m.
+The status module is off by default, so no segment names the failure - the arrow just blushes.
+
+$ starship prompt --cmd-duration 95000        (colour codes stripped)
+
+root in starship-scratch/lab/plain took 1m35s 
+⬢ [OCI] ❯ 
+$ starship prompt --cmd-duration 1500        (under the 2-second threshold: no mention)
+
+root in starship-scratch/lab/plain 
+⬢ [OCI] ❯ 
+$ starship prompt --jobs 3        (three background jobs)
+
+root in starship-scratch/lab/plain 
+✦3 ⬢ [OCI] ❯ 
+$ starship explain --status 1
+
+ Here's a breakdown of your prompt:
+ root in                      -  The active user's username
+ starship-scratch/lab/plain   -  The current working directory
+ ⬢ [OCI]                       -  The container indicator, if inside a container.
+ ❯                            -  A character (usually an arrow) beside where the text is entered in your terminal

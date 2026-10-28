@@ -1,0 +1,105 @@
+The lab — one real binary, two real shells, nobody else's machine
+====================================================================
+
+The lab is Starship as the project ships it, the official
+release binary on the build machine (an Ubuntu 24.04
+sandbox):
+
+  * starship 1.27.0, the x86_64-unknown-linux-gnu release
+    archive, SHA-256 matched against the checksum file
+    published beside it (3b947588...8e4a1 on both sides).
+  * Interactive sessions in bash 5.2.21 and zsh 5.9, each
+    started with a throwaway startup file holding exactly
+    the one init line (starship-lab/rc-bash, rc-zsh), run
+    inside a pseudo-terminal driven by a small Python
+    program so the sessions could be kept as text.
+  * Practice folders built by starship-lab/make-fixtures.sh
+    from starship-lab/fixtures/: trailnotes, a twenty-line
+    Python program in a git repository whose remote is a
+    bare repository on the same machine; web-widget, a
+    Node folder; plain, an empty folder. No example is
+    modelled on any real person, project or organisation,
+    and nothing left the machine.
+  * The lab user is root. That is why the username module
+    shows in every prompt in the guide (it hides for an
+    ordinary user at their own machine) and why zsh's
+    end-of-line marker in t11 is # rather than %.
+
+What the lab ran, in starship-lab/transcripts/:
+
+  * t00 the version print (1.27.0) next to the machine's
+    Node (v24.22.1); Python is 3.12.3 and git 2.43.0.
+  * t01 the default prompt in the empty folder, and its
+    explain breakdown - username, truncated directory,
+    the container badge (the lab machine is a container,
+    and the prompt knew), the character.
+  * t02 the interactive bash session: into the repository,
+    segments arrive; a program writes a file; the next
+    prompt carries [?] before anyone ran git status.
+  * t03 the git states, staged one at a time: [!], [+],
+    [+?], [$], then a commit withheld from the remote for
+    its [⇡], then a push and a clean prompt again.
+  * t04 failure and duration by the numbers: the
+    character's codes under --status 0 and 1 (cat -v),
+    took 1m35s at 95000 ms, silence at 1500 ms, ✦3 at
+    --jobs 3; the companion PTY session adds a genuine
+    took 3s after sleep 3.
+  * t05 language detection in both projects; t05b the
+    package segment vanishing when package.json gained
+    "private": true, and returning when it was removed.
+  * t06 the lab configuration (five changes) applied in
+    both folders: ❌3 appears, the blank line and the
+    Python segment leave, the path deepens.
+  * t07 timings (git_status the slowest at 6 ms),
+    starship module in a clean tree (silence), the head
+    of print-config, and the two broken configurations:
+    invalid TOML falls back to defaults after one error
+    line; a format naming $charakter is skipped without
+    a word.
+  * t08 the character census of a prompt: U+E0A0 is a
+    Private Use codepoint; the other four non-ASCII
+    characters are ordinary Unicode. fc-list counts
+    2,051 fonts, none a Nerd Font.
+  * t09 the preset list, pure-preset printed and applied
+    (a two-line, near-empty prompt), and the
+    nerd-font-symbols preset's branch glyph.
+  * t10 the heads of the init scripts for bash, zsh,
+    fish and PowerShell.
+  * t11 the interactive zsh session wearing the identical
+    prompt, # markers and all.
+  * t12 toggle flipping the lab configuration's Python
+    switch both ways, and refusing directory (no disabled
+    key to flip); a ➜ character symbol; a LAB directory
+    substitution.
+
+The sandbox's rules, discovered by running into them:
+
+  * The first git-states transcript had no [⇡]: the
+    fixture's branch had been pushed without -u, so it
+    tracked nothing and there was nothing to be ahead of.
+    git itself agreed (git branch -vv showed no upstream).
+    make-fixtures.sh now pushes with -u; the incident is
+    chapter 5's trap, kept deliberately.
+  * A transcript regeneration repeated the untracked
+    step with a file the previous run had committed. The
+    [?] duly refused to appear, because the file was
+    tracked by then. Fixtures are now rebuilt from
+    scratch by the script before any capture run.
+  * starship explain under a custom format lists segments
+    out of prompt order (apparently by rendered width).
+    The guide notes it in chapter 9 rather than tidying
+    the transcript.
+  * package.json is JSON and knows it: an edit that left
+    a trailing comma silenced the package module exactly
+    as effectively as the private rule did. Both
+    silences were diagnosed with starship module package,
+    which is what chapter 7 recommends.
+
+Documented only (the lab ran two shells, not twelve): fish,
+PowerShell, Elvish, Nushell, xonsh, Ion, tcsh and cmd/Clink
+(fish and PowerShell init scripts were generated and read);
+the right-hand prompt and transient prompt; the vi-mode
+character; git_state's mid-operation banners; git_status
+counts instead of symbols; and every neighbour in
+chapter 13, which was characterised from its own
+documentation and not installed.

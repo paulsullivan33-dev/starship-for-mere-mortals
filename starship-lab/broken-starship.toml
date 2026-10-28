@@ -1,0 +1,3 @@
+# A configuration with two deliberate mistakes, for chapter 15.
+format = "$username$directory$charakter"
+this line is not toml at all

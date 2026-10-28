@@ -1,0 +1,4 @@
+# Start bash with starship as the prompt, and nothing else changed.
+# starship must be on the PATH (chapter 3). Use it like this:
+#   bash --rcfile rc-bash -i
+eval "$(starship init bash)"

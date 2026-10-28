@@ -1,0 +1,23 @@
+# The lab's starship.toml - small on purpose: five changes, each visible.
+# 1. The whole prompt is rebuilt from a format string: only these
+#    segments, in this order. Everything not named stays home.
+format = "$username$directory$git_branch$git_status$status$character"
+
+# 2. No blank line before the prompt.
+add_newline = false
+
+[directory]
+# 3. Show more of the path, and paint it yellow.
+truncation_length = 5
+style = "bold yellow"
+
+[git_branch]
+style = "bold purple"
+
+[status]
+# 4. The status segment, which is off by default, switched on.
+disabled = false
+
+[python]
+# 5. The Python segment, switched off entirely.
+disabled = true
